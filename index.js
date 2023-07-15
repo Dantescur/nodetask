@@ -3,11 +3,14 @@ const winston = require('winston');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
+const connectToRedis = require('./database/redisConnection');
 
 const app = express();
+const redisClient = connectToRedis();
 
 // Create a Winston logger instance
 const logger = winston.createLogger({
+  // Logger configuration
   level: 'debug', // Set the desired log level
   format: winston.format.combine(
     winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
@@ -25,13 +28,19 @@ const logger = winston.createLogger({
 
 app.use(bodyParser.json());
 
-// Include the routes for notes
-app.use('/notes', noteRoutes);
+// Connect to Redis
+redisClient.on('connect', () => {
+  logger.info('Connected to Redis');
+});
+redisClient.on('error', (error) => {
+  logger.error('Error connecting to Redis:', error);
+});
 
-// Include the routes for user registration and authentication
+// Include the routes for notes and authentication
+app.use('/notes', noteRoutes);
 app.use('/auth', authRoutes);
 
-// Error handler for unhandled routes
+// Error handlers
 app.use((req, res, next) => {
   const error = new Error(`Not found: ${req.method} ${req.url}`);
   error.status = 404;
@@ -43,6 +52,7 @@ app.use((err, req, res, next) => {
   logger.error(err.stack);
   res.status(err.status || 500).json({ message: err.message });
 });
+// ...
 
 // Start the server
 app.listen(3000, () => {

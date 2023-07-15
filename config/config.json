@@ -5,6 +5,8 @@
     "database": "notetaking",
     "host": "db4free.net",
     "dialect": "mysql"
+    "redisHost": "localhost",
+    "redisPort": 6379
   },
   "test": {
     "username": "danidevcu",
