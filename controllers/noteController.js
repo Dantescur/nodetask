@@ -1,10 +1,13 @@
 // controllers/noteController.js
-const { Note } = require('../models/Note');
+const Note = require('../models/Note');
 
 // Create a new note
 async function createNote(req, res) {
+  console.log('Request Body:', req.body);
   const { title, content } = req.body;
   const { userId } = req.user; // assuming you have implemented the authMiddleware to attach the user object to the request
+ console.log('Note Model:', Note);
+ console.log('Create Method:', Note.create);
 
   try {
     const note = await Note.create({ title, content, userId });

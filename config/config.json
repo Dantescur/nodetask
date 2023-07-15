@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "danidevcu",
+    "password": "Kilo2022*",
+    "database": "notetaking",
+    "host": "db4free.net",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "danidevcu",
+    "password": "Kilo2022*",
+    "database": "notetaking",
+    "host": "db4free.net",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "danidevcu",
+    "password": "Kilo2022*",
+    "database": "notetaking",
+    "host": "db4free.net",
+    "dialect": "mysql"
+  }
+}

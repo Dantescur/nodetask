@@ -6,18 +6,18 @@ const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
 // Create a new note (protected route)
-router.post('/notes', authMiddleware, noteController.createNote);
+router.post('/', authMiddleware, noteController.createNote);
 
 // Retrieve all notes (protected route)
-router.get('/notes', authMiddleware, noteController.getAllNotes);
+router.get('/', authMiddleware, noteController.getAllNotes);
 
 // Retrieve a specific note (protected route)
-router.get('/notes/:id', authMiddleware, noteController.getNoteById);
+router.get('/:id', authMiddleware, noteController.getNoteById);
 
 // Update a note (protected route)
-router.put('/notes/:id', authMiddleware, noteController.updateNote);
+router.put('/:id', authMiddleware, noteController.updateNote);
 
 // Delete a note (protected route)
-router.delete('/notes/:id', authMiddleware, noteController.deleteNote);
+router.delete('/:id', authMiddleware, noteController.deleteNote);
 
 module.exports = router;
