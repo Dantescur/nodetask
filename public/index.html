@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Taking App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Note Taking App</h1>
+  </header>
+  <main>
+    <section id="register-section" class="form-section">
+      <h2>Register</h2>
+      <form id="register-form">
+        <label for="register-name">Name:</label>
+        <input type="text" id="register-name" required>
+        <label for="register-email">Email:</label>
+        <input type="email" id="register-email" required>
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" required>
+        <button type="submit">Register</button>
+      </form>
+    </section>
+    <section id="login-section" class="form-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" required>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" required>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+    <section id="notes-section" class="notes-section">
+      <h2>My Notes</h2>
+      <div id="notes-list"></div>
+    </section>
+    <section id="add-note-section" class="form-section">
+      <h2>Add Note</h2>
+      <form id="add-note-form">
+        <label for="note-title">Title:</label>
+        <input type="text" id="note-title" required>
+        <label for="note-content">Content:</label>
+        <textarea id="note-content" required></textarea>
+        <button type="submit">Add Note</button>
+      </form>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

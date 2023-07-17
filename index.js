@@ -1,6 +1,7 @@
 const express = require('express');
 const winston = require('winston');
 const bodyParser = require('body-parser');
+const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const noteRoutes = require('./routes/noteRoutes');
 const connectToRedis = require('./database/redisConnection');
@@ -28,6 +29,8 @@ const logger = winston.createLogger({
 
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Connect to Redis
 redisClient.on('connect', () => {
   logger.info('Connected to Redis');
@@ -35,6 +38,8 @@ redisClient.on('connect', () => {
 redisClient.on('error', (error) => {
   logger.error('Error connecting to Redis:', error);
 });
+
+app.get('/favicon.ico', (req, res) => res.status(204));
 
 // Include the routes for notes and authentication
 app.use('/notes', noteRoutes);
