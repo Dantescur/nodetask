@@ -2,9 +2,9 @@
 async function handleRegister(event) {
     event.preventDefault();
 
-    const name = document.getElementById('logname').value;
-    const email = document.getElementById('logemail').value;
-    const password = document.getElementById('logpass').value;
+    const name = document.getElementById('reg-name').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-pass').value;
 
     try {
         const response = await fetch('/auth/register', {
@@ -36,8 +36,8 @@ async function handleRegister(event) {
 async function handleLogin(event) {
     event.preventDefault();
 
-    const email = document.getElementById('logemail').value;
-    const password = document.getElementById('logpass').value;
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-pass').value;
 
     try {
         const response = await fetch('/auth/login', {
