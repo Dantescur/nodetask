@@ -45,7 +45,7 @@ async function login(req, res) {
     }
 
     // Generate a JWT token
-    const token = jwt.sign({ userId: user.id }, 'your-secret-key');
+    const token = jwt.sign({ userId: user.id }, 'qZ#7t$%a7zR5&T23z!xqKb4p9jHnDgP6');
 
     return res.status(200).json({ message: 'Login successful', token });
   } catch (error) {

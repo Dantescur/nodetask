@@ -63,3 +63,5 @@ app.use((err, req, res, next) => {
 app.listen(3000, () => {
   logger.info('Server started on port 3000');
 });
+
+module.exports = app;
