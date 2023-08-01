@@ -1,29 +1,25 @@
 version: '3'
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - 3000:3000
+      - "3000:3000"
     environment:
-      - NODE_ENV=production
-      # Add any other environment variables needed for your application
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     depends_on:
       - db
       - redis
   db:
-    image: mysql:8
+    image: mysql:latest
+    restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=Kilo2022*
-      - MYSQL_DATABASE=notetaking
-      - MYSQL_USER=danidevcu
-      - MYSQL_PASSWORD=Kilo2022*
-    volumes:
-      - ./data/mysql:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: Kilo2022*
+      MYSQL_USER: danidevcu
+      MYSQL_PASSWORD: Kilo2022*
+      MYSQL_DATABASE: notetaking
   redis:
     image: redis:latest
+    restart: always
     ports:
-      - 6379:6379
-    volumes:
-      - ./data/redis:/data
+      - "6379:6379"
