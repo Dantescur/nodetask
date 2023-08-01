@@ -4,8 +4,8 @@
     "password": "Kilo2022*",
     "database": "notetaking",
     "host": "db4free.net",
-    "dialect": "mysql",
-    "redisHost": "redis", // Change this to "redis" to use the Redis container
+    "dialect": "mysql"
+    "redisHost": "localhost",
     "redisPort": 6379
   },
   "test": {
@@ -13,17 +13,13 @@
     "password": "Kilo2022*",
     "database": "notetaking",
     "host": "db4free.net",
-    "dialect": "mysql",
-    "redisHost": "redis", // Change this to "redis" to use the Redis container
-    "redisPort": 6379
+    "dialect": "mysql"
   },
   "production": {
     "username": "danidevcu",
     "password": "Kilo2022*",
     "database": "notetaking",
     "host": "db4free.net",
-    "dialect": "mysql",
-    "redisHost": "redis", // Change this to "redis" to use the Redis container
-    "redisPort": 6379
+    "dialect": "mysql"
   }
 }
